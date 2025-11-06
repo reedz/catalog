@@ -56,7 +56,7 @@ kraft run --rm -M 1024M -p 8080:8080 --plat qemu --arch x86_64 unikraft.org/dotn
 
 The commands so far used the pre-build .NET image available in the Unikraft registry.
 
-In oder to to build a local .NET image, clone this repository and `cd` into this directory.
+In order to build a local .NET image, clone this repository and `cd` into this directory.
 Then use `kraft` to build an image locally:
 
 ```bash
