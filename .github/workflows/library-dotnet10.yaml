@@ -31,6 +31,9 @@ concurrency:
 
 jobs:
   build:
+    permissions:
+      contents: read
+
     strategy:
       fail-fast: false
       matrix:
@@ -67,6 +70,10 @@ jobs:
   push:
     if: ${{ github.event_name == 'push' || github.event_name == 'schedule' }}
     needs: [ build ]
+    permissions:
+      contents: read
+      packages: write
+
     runs-on: ubuntu-latest
 
     steps:
