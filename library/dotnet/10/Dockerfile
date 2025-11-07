@@ -1,5 +1,11 @@
 FROM --platform=linux/x86_64 mcr.microsoft.com/dotnet/sdk:10.0-preview AS build
 
+# Install native build tools required for AOT compilation
+RUN apt-get update && apt-get install -y \
+    clang \
+    zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /src
 
 COPY ./Program.cs /src/Program.cs
